@@ -8,6 +8,7 @@ tools:
 	sudo service docker restart
 	sudo chmod 666 /var/run/docker.sock
 	docker network create custom_network
+	sudo apt-get install -y postgresql-client
 start:
 	sh rates-s.sh
 db:
