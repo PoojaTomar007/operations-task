@@ -9,10 +9,8 @@ tools:
 	sudo chmod 666 /var/run/docker.sock
 	docker network create custom_network
 start:
-	docker-compose up -d
 	sh rates-s.sh
 db:
 	sh db.sh
 stop:
-	docker-compose down
 	sh rates-d.sh

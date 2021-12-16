@@ -1,23 +1,6 @@
 version: '3.3'
 
 services:
-  postgres:
-    container_name: postgres
-    image: postgres:13-alpine
-    restart: always
-    volumes:
-      - ./db:/var/lib/postgresql
-    ports:
-      - "5432:5432"
-    expose:
-      - 5432
-    environment:
-      POSTGRES_DB: 'postgres'
-      POSTGRES_USER: 'postgres'
-      POSTGRES_PASSWORD: 'postgres'
-      POSTGRES_HOST: 'postgres'
-    restart: always
-
   web:
     container_name: web
     restart: always
@@ -36,10 +19,16 @@ services:
       - "3000:3000"
     expose:
       - 3000
-    depends_on:
-      - postgres
-    links:
-      - postgres    
+        #    depends_on:
+        #      - postgres
+        #    links:
+        #      - postgres    
     volumes:
       - .:/opt/services/src/app/
     command: gunicorn -b :3000 wsgi
+    networks:
+      - my-proxy-net
+networks:
+  my-proxy-net:
+    external:
+      name: custom_network
