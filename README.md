@@ -19,5 +19,9 @@ Some general points:
   - curl "http://127.0.0.1:3000/rates?date_from=2021-01-01&date_to=2021-01-31&orig_code=CNGGZ&dest_code=EETLL"
 
 ## Case: Data ingestion pipeline
-### Architecture
+### Architecture (Initial)
 <img width="1208" alt="Screenshot 2021-12-17 at 12 45 38 PM" src="https://user-images.githubusercontent.com/90127609/146504862-9b682c2e-3e00-4f05-a3b4-fbb10735733f.png">
+
+
+### Architecture (Final)
+<img width="1241" alt="Screenshot 2021-12-17 at 1 13 11 PM" src="https://user-images.githubusercontent.com/90127609/146508162-b9ab0db3-adbb-4a9d-8487-71471aff4f24.png">
