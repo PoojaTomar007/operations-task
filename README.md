@@ -20,9 +20,9 @@ Some general points:
   - curl "http://127.0.0.1:3000/rates?date_from=2021-01-01&date_to=2021-01-31&orig_code=CNGGZ&dest_code=EETLL"
 
 * NOTE: 
-    - you can use the ssh key you have created to ssh newly created instance.
+    - you can use the ssh key you have created on your machine in above steps. You can find it on path (~/.ssh/id_rsa)
     - In terraform output you can find the public ip of the instance.
-    - Example: ssh -i path-to-ssh-key poojatomar0292@public-ip
+    - Example: ssh -i ~/.ssh/id_rsa poojatomar0292@35.188.216.148
 
 ## Case: Data ingestion pipeline
 ### Architecture (Initial)
