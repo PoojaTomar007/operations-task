@@ -7,9 +7,10 @@ Some general points:
 ## Practical case: Deployable development environment
 ### Pre-requisites
 * Below are the pre-requisites
-  - Use Ubuntu 18 and install git and terraform on it
-### How to use?
-* Run below commands:
+  - Use Ubuntu 18 and login into it
+  - Install git and terraform on it
+### Steps to Create Infrastructure and Install Applicatin & Database
+* Run below commands on your server:
   - git clone https://github.com/PoojaTomar007/operations-task.git
   - ssh-keygen (press enter and leave everything as default)
   - cd operations-task/terraform
