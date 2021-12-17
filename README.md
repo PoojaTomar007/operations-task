@@ -29,4 +29,23 @@ To transfer the data I have used AWS DataSync. It is a secure, online service th
 
 For ETL operations I have used AWS Glue. It can run your ETL jobs as new data arrives. You can use an AWS Lambda function to trigger your ETL jobs to run as soon as new data becomes available in Amazon S3. You can also register this new dataset in the AWS Glue Data Catalog as part of your ETL jobs. Using Cloudwatch we can monitor each ETL job and Lambda function executions.
 
+### Aditional Questions and Answers
+Question 1- The batch updates have started to become very large, but the requirements for their processing time are strict.
+Answer: In many cases, batch processing can have tight timelines and require significant resources, especially if the batch processing job is processing big data. When timelines are strict and data is large we need to take care of few things like:
+ - latency in data collection: For that we can use direct connect and aws data sync service so that we can collect data with low latency
+ - Highly available services: We have used AWS native services those SLA is maitained by AWS and we can rely on the providors high availablity solutions.
+ - Data Transform and load in regular fashion: We have used services like Batch, Glue, Lambda, Data Pipelines to transform and load the data.
 
+Question 2- Code updates need to be pushed out frequently. This needs to be done without the risk of stopping a data update already being processed, nor a data response being lost.
+Answer: We can use CI/CD pipelines to update the code with zero downtime. We can use blue/green deployments to push the changes with zero downtime.
+
+Question 3- For development and staging purposes, you need to start up a number of scaled-down versions of the system.
+Answer: Ya we can use scaled-down versions of the system in development and staging environments. We dont require the realtime data to test in development environment. We can segregate the data sources in S3 bucket for lower environments.
+
+### Addressing below scenarios
+- Which parts of the system are the bottlenecks or problems that might make it incompatible with the new requirements?
+   - Answer: Data collection can be the bottleneck and we need to remove the latency so that we can collect the data at high speed by using direct connect.
+
+
+- How would you restructure and scale the system to address those?
+   - Answer: By using AWS Managed services we can leave the admin overheads to Amazon itself and if we need to scale any services on kubernetes level or vm level we need to scale it through concepts like auto-scaling in vm and replica sets in kubernetes. We can also leverage Kubernetes Cluster Autoscaler that will automatically adjusts the number of nodes in your cluster when pods fail or are rescheduled onto other nodes.
