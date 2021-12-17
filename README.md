@@ -25,3 +25,8 @@ Data can come from customer side or from any endpoints, I assume it is coming fr
 
 ### Architecture (Final)
 <img width="1241" alt="Screenshot 2021-12-17 at 1 13 11 PM" src="https://user-images.githubusercontent.com/90127609/146508162-b9ab0db3-adbb-4a9d-8487-71471aff4f24.png">
+To transfer the data I have used AWS DataSync. It is a secure, online service that automates and accelerates moving data between on premises and AWS storage services. DataSync can copy data between Network File System (NFS) shares, Server Message Block (SMB) shares, Hadoop Distributed File Systems (HDFS), self-managed object storage, AWS Snowcone, Amazon Simple Storage Service (Amazon S3) buckets, Amazon Elastic File System (Amazon EFS) file systems, and Amazon FSx for Windows File Server file systems.
+
+For ETL operations I have used AWS Glue. It can run your ETL jobs as new data arrives. You can use an AWS Lambda function to trigger your ETL jobs to run as soon as new data becomes available in Amazon S3. You can also register this new dataset in the AWS Glue Data Catalog as part of your ETL jobs. Using Cloudwatch we can monitor each ETL job and Lambda function executions.
+
+
