@@ -11,12 +11,18 @@ Some general points:
 ### How to use?
 * Run below commands:
   - git clone https://github.com/PoojaTomar007/operations-task.git
+  - ssh-keygen (press enter and leave everything as default)
   - cd operations-task/terraform
   - terraform init
   - terraform apply
 ### Testing
 * ssh on newly created VM and run below command to get the data from api service and postgres database
   - curl "http://127.0.0.1:3000/rates?date_from=2021-01-01&date_to=2021-01-31&orig_code=CNGGZ&dest_code=EETLL"
+
+* NOTE: 
+    - you can use the ssh key you have created to ssh newly created instance.
+    - In terraform output you can find the public ip of the instance.
+    - Example: ssh -i path-to-ssh-key poojatomar0292@public-ip
 
 ## Case: Data ingestion pipeline
 ### Architecture (Initial)
